@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Hello admin</h1>
+
+   <h3>Waiting for approval</h3>
+   {{ data }}
+   
+
+   {% for i in data %}
+
+   <p>Theater name: {{ i.theater_name}} | 
+    
+    
+    Theater owner:
+    
+    {% for j in i.user_id %}
+    {{ j.name}}
+    {% endfor %}
+
+    
+
+
+</p>
+    <form accept="/admin" , method="post">
+        <input type="text" name="id" value={{i.id}} hidden>
+        <input type="radio"  name="status" value='T'>
+        <label for="html">True</label>
+        <input type="radio"  name="status" value='F'>
+        <label for="html">False</label>
+        <input type="submit">
+    </form>
+
+   {% endfor %}
+
+</body>
+</html>
