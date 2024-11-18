@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello {{theater_owner.name}}</h1>
+
+
+    <div style="background-color: aliceblue ; border: solid black;">
+        <form action="/theater_dashbord/{{theater_owner.id}}" method="post">
+            <label for="title">Title:</label>
+        <input type="text"  name="title" required>
+        
+
+
+        <label for="title">Genre:</label>
+        <select name="genre" >
+            <option value="Horror">Horror</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Romance">Romance</option>
+            <option value="Action">Action</option>
+        </select>
+
+
+        <label for="date">Date:</label>
+        <input type="date"  name="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time"  name="time" required>
+
+        <label for="price_of_ticket">Price of Ticket:</label>
+        <input type="number"  name="price_of_ticket" step="50"  required>
+
+        <label for="seats">Number of Seats:</label>
+        <input type="number"  name="seats" required>
+
+        <label for="poster">Poster URL:</label>
+        <input type="url"  name="poster">
+
+       
+        <input type="text"  name="host_id"  value={{theater.id}} hidden required>
+
+        <input type="submit" value="Add Movie">
+
+        </form>
+
+    </div>
+
+
+    <div>
+        {% for movie in theater.hosted_movies %}
+        
+        <h4>{{ movie.title}}</h4>
+        <p>{{ movie.genre}}</p>
+        <img src=" {{movie.poster}}" style="height: 200px; width: 150px;">
+
+        <form action="/update_data/{{theater_owner.id}}" method="post">
+            <input type="text" name="t_id" value= {{theater.id}} hidden >
+            <input type="text" name="m_id" value= {{movie.id}} hidden >
+            <input type="submit" value="Delete">
+
+        </form>
+        {% endfor %}
+    </div>
+</body>
+</html>

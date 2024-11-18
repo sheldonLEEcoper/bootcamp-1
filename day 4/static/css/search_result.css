@@ -1,0 +1,18 @@
+.card{
+    width: 136px !important;
+    height: 200px !important;
+}
+
+.details{
+    width: 136px !important;
+    height: 90px !important;
+    background-color: azure !important;
+    position: relative !important;
+    transform: translate(0px, 111px) !important;
+    opacity: 60% !important;
+}
+
+.details h3 , .details p {
+    margin: 2px !important;
+    font-size: 13px !important;
+} 
